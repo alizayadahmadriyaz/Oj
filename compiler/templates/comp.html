@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Compiler</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+}
+
+.container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+}
+
+form {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+textarea, select, button {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#output {
+    margin-top: 2rem;
+}
+
+#output h2 {
+    margin-top: 0;
+}
+
+#outputText {
+    white-space: pre-wrap;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow-x: auto;
+    max-height: 300px;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Online Compiler</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <form id="compilerForm">
+                <label for="code">Enter your code:</label>
+                <textarea id="code" name="code" rows="10" required></textarea>
+
+                <label for="language">Select programming language:</label>
+                <select id="language" name="language" required>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="cpp">C++</option>
+                    <option value="javascript">JavaScript</option>
+                </select>
+
+                <button type="submit">Run Code</button>
+            </form>
+
+            <div id="output">
+                <h2>Output</h2>
+                <pre id="outputText"></pre>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Online Compiler. All rights reserved.</p>
+    </footer>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>

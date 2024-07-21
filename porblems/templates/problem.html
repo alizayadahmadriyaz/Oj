@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ problem.problem_name }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .problem-section, .submission-section { margin-bottom: 20px; }
+        .result { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; }
+        .accepted { color: green; }
+        .wrong { color: red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ problem.problem_name }}</h1>
+        <div class="problem-section">
+            <p><strong>Description:</strong> {{ problem.problem_description }}</p>
+            <p><strong>Input:</strong> {{ problem.problem_input }}</p>
+            <p><strong>Output:</strong> {{ problem.problem_output }}</p>
+        </div>
+
+        <div class="submission-section">
+            <h2>Submit Your Code</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit Code</button>
+            </form>
+        </div>
+
+        {% if submission %}
+        <div class="results-section">
+            <h2>Test Results</h2>
+            {% for result in results %}
+                <div class="result {% if result.verdict == 'Accepted' %}accepted{% else %}wrong{% endif %}">
+                    <p><strong>Input:</strong> {{ result.input }}</p>
+                    <p><strong>Expected Output:</strong> {{ result.expected_output }}</p>
+                    <p><strong>Actual Output:</strong> {{ result.actual_output }}</p>
+                    <p><strong>Verdict:</strong> {{ result.verdict }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <a href="/porblems/all_problems/">Back to All Problems</a>
+    </div>
+</body>
+</html>
